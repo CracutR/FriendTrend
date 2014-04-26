@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="http://bootswatch.com/readable/bootstrap.css" media="screen">
     <link rel="stylesheet" href="http://bootswatch.com/assets/css/bootswatch.min.css">
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js?ver=1.4.2'></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
@@ -28,8 +29,8 @@
 
     </script><style type="text/css"></style>
     <script id="friend_chart" type="text/javascript">
-      var my_JSON_object = $.getJSON("./sample.json");
-      alert (my_JSON_object.outbox.data[0]);
+      var my_JSON_object = $.getJSON("../../src/sample.json");
+      success (my_JSON_object.outbox.data[0]);
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
