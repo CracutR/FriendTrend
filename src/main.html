@@ -28,6 +28,8 @@
 
     </script><style type="text/css"></style>
     <script id="friend_chart" type="text/javascript">
+      var my_JSON_object = $.getJSON("./sample.json");
+      alert (my_JSON_object.outbox.data[0]);
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
