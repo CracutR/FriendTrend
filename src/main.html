@@ -48,6 +48,7 @@
           ['December',  1030]
         ];
 
+      var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
       function drawChart() {
         var data = google.visualization.arrayToDataTable(dataPoints);
 
@@ -58,7 +59,6 @@
           backgroundColor: "transparent"
         };
 
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
         chart.draw(data, options);
         google.visualization.events.addListener(chart, 'ready', getData);
         google.visualization.events.trigger(chart, 'ready', {});
@@ -116,6 +116,7 @@
 [20140410, 4],
 [20140411, 90]];
 dataPoints = temp;
+chart.dataSourceInput(temp);
         /*
 <<<<<<< HEAD
       alert();
