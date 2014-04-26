@@ -32,23 +32,9 @@
     <script id="friend_chart" type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
-      var data;
+      var dataPoints = [['Month/Year', 'Messages']];
       function drawChart() {
-        data = google.visualization.arrayToDataTable([
-          ['Month', 'Messages'],
-          ['January', 1000],
-          ['February', 1170],
-          ['March',  660],
-          ['April',  1030],
-          ['May',  400],
-          ['June',  678],
-          ['July',  2353],
-          ['August',  123],
-          ['September',  0],
-          ['October',  103],
-          ['November',  986],
-          ['December',  1030]
-        ]);
+        var data = google.visualization.arrayToDataTable(dataPoints);
 
         var options = {
           title: 'Friend Trend',
@@ -73,10 +59,15 @@
             },
             context: document.body,
             success: function(info){
-                    data = info;
+                    //dataPoints = info;
                     var divEl = document.getElementById("responseDiv"); 
                     divEl.innerHTML = ajaxRequest.responseText; 
                     alert("data = " + data);
+                    for (var i = 1; i < info.length; i++) {
+                        dataPoints[i][0] = info[i][0].substring(4, 6) + '-' + info[i][0].substring(0, 4);
+                        dataPoints[i][1] = info[i][1];
+                    }
+                    alert("boom boom boom");
           }
 
          });
