@@ -60,6 +60,7 @@
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
         chart.draw(data, options);
+        google.visualization.events.trigger(this, 'ready', {});
       }
 
       function getData() {
@@ -114,7 +115,6 @@
 [20140410, 4],
 [20140411, 90]];
 
-google.visualization.events.trigger(this, 'ready', {});
 drawChart();
         /*
 <<<<<<< HEAD
