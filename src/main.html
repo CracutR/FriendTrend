@@ -6,6 +6,11 @@
     <script id="friend_chart" type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
+	  var request = new XMLHttpRequest();
+	   request.open("GET", "../../data/file.json", false);
+       request.send(null)
+       var my_JSON_object = JSON.parse(request.responseText);
+       alert (my_JSON_object.outbox.data[0]);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Month', 'Messages'],
@@ -54,7 +59,18 @@
     </script>
   </head>
   <body>
-    <div id="chart_div"></div>
-    <div id="pie_div"></div>
+	<div>
+		<div id="pie_div"></div>
+		<div id="chart_div"></div>
+	</div>
+	<div id="panel">
+		<div id="stats">
+		
+		</div>
+		
+		<div id="newSearch">
+			<button>Find Friend Trend </button>
+		</div>
+	</div>
   </body>
 </html>
