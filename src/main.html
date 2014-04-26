@@ -32,7 +32,7 @@
     <script id="friend_chart" type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
-      var dataPoints;
+      var dataPoints = new Array();
       function drawChart() {
         var data = google.visualization.arrayToDataTable(dataPoints);
 
