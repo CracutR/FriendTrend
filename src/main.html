@@ -65,8 +65,6 @@
       }
 
       function getData() {
-          google.load("visualization", "1", {packages:["corechart"]});
-          google.setOnLoadCallback(drawChart);
         var friendName = document.getElementById("textbox");
         var name = friendName.value;
         var temp = [[20131027, 24],
@@ -117,22 +115,7 @@
 [20140403, 23],
 [20140410, 4],
 [20140411, 90]];
-//dataPoints = temp;
-function drawChart() {
-        var data = google.visualization.arrayToDataTable(temp);
-
-        var options = {
-          title: 'Friend Trend',
-          hAxis: {title: 'Month',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0},
-          backgroundColor: "transparent"
-        };
-
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-        google.visualization.events.addListener(chart, 'ready', getData);
-        google.visualization.events.trigger(chart, 'ready', {});
-      }
+dataPoints = temp;
         /*
 <<<<<<< HEAD
       alert();
