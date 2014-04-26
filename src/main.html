@@ -64,8 +64,9 @@
       function getData() {
         var friendName = document.getElementById("textbox");
         var name = friendName.value;
+      alert();
          $.ajax({
-            url: "trender.rb",
+            url: "http://localhost:4567/trender.rb",
             type:"GET",
             data: {
               "friend" : name
