@@ -74,6 +74,8 @@
             context: document.body,
             success: function(info){
                     data = info;
+                    var divEl = document.getElementById("responseDiv"); 
+                    divEl.innerHTML = ajaxRequest.responseText; 
                     alert("data = " + data);
           }
 
@@ -126,6 +128,7 @@
       <div class="jumbotron">
         <div id="chart_div" style="width: 900px; height: 500px; text-align: left;"></div>
         <div id="pie_div" style="width: 900px; height: 500px;"></div>
+        <div id="responseDiv"></div>
 
       </div>
     </body>
