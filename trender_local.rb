@@ -2,7 +2,7 @@ require 'koala'   # facebook wrapper
 # require 'sinatra' # to push onto server for javascript access
 require 'open-uri'
 require 'json'
-access_token = 'CAACEdEose0cBACj4DZCaeZAET1eNXyLCGLHqZCdlxlUA2YF2RjYrFUDepo2fNr0r8rip4OHGZABUjd9IoXZBrszRr6yhwvEH1RugZCkr23XnJK6jZBTUtlLwlNzQ6c0zG2YnLJujlVAAS9qZC9oJx7SGRcI4NcuKRhqZAQ34olUAUCk9prFliZAX2XDgkKASOPmvZCfeJZBqiD0nZCgZDZD'
+access_token = 'CAACEdEose0cBAIJN3aZB5AYR40JrltANQgW2QHHOEDIug5L4JNkKMHQyoc1snoljXtawaXfCldG2VRZAbj33EeRmGTJrc8Cz4nTI60TTOX5NIVZARfZAZAHTw4nDMqOf7WBr4uhzMyLoWJOphy9UUONvg09nGY6yDIL9l2JDI3pxarCrW6CrIAkvZCyjaRqDg1pt7S4gWpegZDZD'
 # get '/:friend' do
 # Retrieves and prints a space-delimited mapping of
 # dates => counts of messages on a date
@@ -23,6 +23,7 @@ json_msgs = JSON.parse(JSON.pretty_generate(messages))
 times = []
 target = nil
 while not target do
+  puts 1
   json_msgs.each do |msg|
     # these brackets on brackets are walking down the info tree
     # (it's JSON, but same idea as XML)
@@ -31,7 +32,7 @@ while not target do
       break                    # per friend per output page
     end
   end
-  target = target["comments"]["paging"]["next"]
+  if not target then json_msgs = JSON.load(open(json_msgs[json_msgs.size-1]["comments"]["paging"]["next"])) end
 end
 
 # at this point, we never need to find friend again :D

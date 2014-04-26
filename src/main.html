@@ -32,9 +32,7 @@
     <script id="friend_chart" type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
-      var data;
-      function drawChart() {
-        data = google.visualization.arrayToDataTable([
+      var dataPoints = [
           ['Month', 'Messages'],
           ['January', 1000],
           ['February', 1170],
@@ -48,7 +46,9 @@
           ['October',  103],
           ['November',  986],
           ['December',  1030]
-        ]);
+        ];
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(dataPoints);
 
         var options = {
           title: 'Friend Trend',
@@ -64,7 +64,11 @@
       function getData() {
         var friendName = document.getElementById("textbox");
         var name = friendName.value;
+<<<<<<< HEAD
       alert();
+=======
+        alert();
+>>>>>>> d9d87ae358ce8fe2d195c9a6422269b90c22f43b
          $.ajax({
             url: "http://localhost:4567/trender.rb",
             type:"GET",
@@ -73,9 +77,18 @@
             },
             context: document.body,
             success: function(info){
-                    data = info;
+                    //dataPoints = info;
+                    var divEl = document.getElementById("responseDiv"); 
+                    divEl.innerHTML = ajaxRequest.responseText; 
                     alert("data = " + data);
+                    for (var i = 1; i < info.length; i++) {
+                        dataPoints[i][0] = info[i][0].substring(4, 6) + '-' + info[i][0].substring(0, 4);
+                        dataPoints[i][1] = info[i][1];
+                    }
+                    alert("boom boom boom");
+                    drawChart();
           }
+
 
          });
      }
@@ -112,7 +125,7 @@
               <h1 style="font-size: 100pt;">Friend Trend</h1>
               <p class="lead">Where did the time go?</p>
             </div>
-            <form class="navbar-form navbar-left" style="width: 100%;"  method="post" >
+            <form class="navbar-form navbar-left" style="width: 100%;"  onsubmit="getData();" >
                  <input type="text" id="textbox" class="form-control col-lg-8" placeholder="Search for a Friend" style="float: none; vertical-align: bottom;">
                  <button type="button" onclick="getData();" id="bill" class="btn btn-primary" style="margin-left: 20px; vertical-align: bottom" action:"submit">
                     Search!
@@ -126,6 +139,7 @@
       <div class="jumbotron">
         <div id="chart_div" style="width: 900px; height: 500px; text-align: left;"></div>
         <div id="pie_div" style="width: 900px; height: 500px;"></div>
+        <div id="responseDiv"></div>
 
       </div>
     </body>

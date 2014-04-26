@@ -2,17 +2,18 @@ require 'koala'   # facebook wrapper
 require 'sinatra' # to push onto server for javascript access
 require 'open-uri'
 require 'json'
-access_token = 'CAACEdEose0cBACj4DZCaeZAET1eNXyLCGLHqZCdlxlUA2YF2RjYrFUDepo2fNr0r8rip4OHGZABUjd9IoXZBrszRr6yhwvEH1RugZCkr23XnJK6jZBTUtlLwlNzQ6c0zG2YnLJujlVAAS9qZC9oJx7SGRcI4NcuKRhqZAQ34olUAUCk9prFliZAX2XDgkKASOPmvZCfeJZBqiD0nZCgZDZD'
-get '/:friend' do
+access_token = 'CAACEdEose0cBAOVIcym6dgmPgO4djn6kRvdE4iiIQ5gbxCcvvMZAePrZADaABkTiWClYSLFzX61yp0HEyWZB1FtwVNjdkhDMWFxJ5NS1aZAZALtoqbZCfMxcc2nvKptYUctlDG2OKr3TmY5R0NNT5bpNmdHMltjp9QnnWucnT6gFYF9aX0dYojlmP2zOtgurCLQPdqaUX6fgZDZD'
+get '/friend' do
 # Retrieves and prints a space-delimited mapping of
 # dates => counts of messages on a date
 # between me/ and friend.
 # dates are in the form yyyymmdd.
-
+  File.open("did_i_run.txt", 'w') {|file| file.write("i ran!")}
   if ARGV.size != 1 then
     fail 'missing friend of interest'
   end
-  friend    = params[:friend] #ARGV[0]
+  friend    = params[friend] # for using with AJAX
+  # friend  = ARGV[0] # for running locally
   graph     = Koala::Facebook::API.new(access_token)
   user      = graph.get_object("me")
   messages  = graph.get_connections(user["id"], "outbox", { :limit => 200})
