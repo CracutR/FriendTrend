@@ -31,7 +31,7 @@
     </script><style type="text/css"></style>
     <script id="friend_chart" type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(getData);
+      google.setOnLoadCallback(drawChart);
             var dataPoints = [
           ['Month', 'Messages'],
           ['January', 1000],
@@ -113,17 +113,8 @@
 [20140403, 23],
 [20140410, 4],
 [20140411, 90]];
-        var data = google.visualization.arrayToDataTable(temp);
 
-        var options = {
-          title: 'Friend Trend',
-          hAxis: {title: 'Month',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0},
-          backgroundColor: "transparent"
-        };
-
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+google.visualization.events.trigger(this, 'ready', {});
         /*
 <<<<<<< HEAD
       alert();
