@@ -32,7 +32,21 @@
     <script id="friend_chart" type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
-      var dataPoints = [['Month/Year', 'Messages']];
+      var dataPoints = [
+          ['Month', 'Messages'],
+          ['January', 1000],
+          ['February', 1170],
+          ['March',  660],
+          ['April',  1030],
+          ['May',  400],
+          ['June',  678],
+          ['July',  2353],
+          ['August',  123],
+          ['September',  0],
+          ['October',  103],
+          ['November',  986],
+          ['December',  1030]
+        ];
       function drawChart() {
         var data = google.visualization.arrayToDataTable(dataPoints);
 
