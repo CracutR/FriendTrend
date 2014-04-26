@@ -81,9 +81,12 @@
                     var divEl = document.getElementById("responseDiv"); 
                     divEl.innerHTML = ajaxRequest.responseText; 
                     alert("data = " + data);
-                    for (var i = 1; i < info.length; i++) {
+                    for (var i = 1; i < dataPoints.length; i++) {
                         dataPoints[i][0] = info[i][0].substring(4, 6) + '-' + info[i][0].substring(0, 4);
                         dataPoints[i][1] = info[i][1];
+                    }
+                    for (var i = dataPoints.length; i < info.length; i++) {
+                        dataPoints.push(info[i][0].substring(4, 6) + '-' + info[i][0].substring(0, 4), info[i],[1]);
                     }
                     alert("boom boom boom");
                     drawChart();
