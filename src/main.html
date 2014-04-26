@@ -60,6 +60,7 @@
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
         chart.draw(data, options);
+        google.visualization.events.addListener(chart, 'ready', getData);
         google.visualization.events.trigger(chart, 'ready', {});
       }
 
