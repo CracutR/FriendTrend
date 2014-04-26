@@ -1,0 +1,257 @@
+{
+  "outbox": {
+    "data": [
+      {
+        "id": "285060791660571", 
+        "from": {
+          "name": "Radu Cracut", 
+          "id": "100000153139812"
+        }, 
+        "to": {
+          "data": [
+            {
+              "name": "Radu Cracut", 
+              "id": "100000153139812"
+            }, 
+            {
+              "name": "Babak Dabagh", 
+              "id": "693460175"
+            }
+          ]
+        }, 
+        "message": "Hey Babak, I'm having a bit of trouble implementing getBallsFromSmallest for homework 3", 
+        "updated_time": "2014-04-26T09:18:04+0000", 
+        "unread": 0, 
+        "unseen": 0, 
+        "comments": {
+          "data": [
+            {
+              "id": "285060791660571_1395691540688", 
+              "from": {
+                "name": "Radu Cracut", 
+                "id": "100000153139812"
+              }, 
+              "message": "Yeah, I got an offer :)", 
+              "created_time": "2014-03-24T20:05:40+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691543783", 
+              "from": {
+                "name": "Babak Dabagh", 
+                "id": "693460175"
+              }, 
+              "message": "nice", 
+              "created_time": "2014-03-24T20:05:43+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691566175", 
+              "from": {
+                "name": "Radu Cracut", 
+                "id": "100000153139812"
+              }, 
+              "message": "Anyway, I sent out an email to apptio asking if they decided yet", 
+              "created_time": "2014-03-24T20:06:06+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691584183", 
+              "from": {
+                "name": "Radu Cracut", 
+                "id": "100000153139812"
+              }, 
+              "message": "This was on friday so hopefully they respond within the week", 
+              "created_time": "2014-03-24T20:06:24+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691600546", 
+              "from": {
+                "name": "Babak Dabagh", 
+                "id": "693460175"
+              }, 
+              "message": "hopefully\nits already been over a week since they said they'd get back", 
+              "created_time": "2014-03-24T20:06:40+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691628080", 
+              "from": {
+                "name": "Radu Cracut", 
+                "id": "100000153139812"
+              }, 
+              "message": "yeah, which is weird", 
+              "created_time": "2014-03-24T20:07:08+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691634333", 
+              "from": {
+                "name": "Radu Cracut", 
+                "id": "100000153139812"
+              }, 
+              "message": "do you know if todd heard back?", 
+              "created_time": "2014-03-24T20:07:14+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691642705", 
+              "from": {
+                "name": "Babak Dabagh", 
+                "id": "693460175"
+              }, 
+              "message": "last i heard he hadn't either", 
+              "created_time": "2014-03-24T20:07:22+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691717337", 
+              "from": {
+                "name": "Radu Cracut", 
+                "id": "100000153139812"
+              }, 
+              "message": "Hmm maybe they're deciding really hard between the three of us", 
+              "created_time": "2014-03-24T20:08:37+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691753076", 
+              "from": {
+                "name": "Babak Dabagh", 
+                "id": "693460175"
+              }, 
+              "message": "or they're all just fighting to see who gets which one of us for their team", 
+              "created_time": "2014-03-24T20:09:13+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691779342", 
+              "from": {
+                "name": "Radu Cracut", 
+                "id": "100000153139812"
+              }, 
+              "message": "Yus", 
+              "created_time": "2014-03-24T20:09:39+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691794753", 
+              "from": {
+                "name": "Radu Cracut", 
+                "id": "100000153139812"
+              }, 
+              "message": "It would be so weird though", 
+              "created_time": "2014-03-24T20:09:54+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691825731", 
+              "from": {
+                "name": "Radu Cracut", 
+                "id": "100000153139812"
+              }, 
+              "message": "Im still not convinced that companies want to hire people like us haha", 
+              "created_time": "2014-03-24T20:10:25+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691845271", 
+              "from": {
+                "name": "Babak Dabagh", 
+                "id": "693460175"
+              }, 
+              "message": "if they saw how we work/act in the labs, then yeah", 
+              "created_time": "2014-03-24T20:10:45+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691878084", 
+              "from": {
+                "name": "Radu Cracut", 
+                "id": "100000153139812"
+              }, 
+              "message": "\"work\"", 
+              "created_time": "2014-03-24T20:11:18+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691884873", 
+              "from": {
+                "name": "Babak Dabagh", 
+                "id": "693460175"
+              }, 
+              "message": "exactly", 
+              "created_time": "2014-03-24T20:11:24+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691966612", 
+              "from": {
+                "name": "Babak Dabagh", 
+                "id": "693460175"
+              }, 
+              "message": "maybe we should ask sean how long they took to get to him\nhe got an offer from them a couple of weeks ago if i remember correctly", 
+              "created_time": "2014-03-24T20:12:46+0000"
+            }, 
+            {
+              "id": "285060791660571_1395691994463", 
+              "from": {
+                "name": "Radu Cracut", 
+                "id": "100000153139812"
+              }, 
+              "message": "Might be a good idea.", 
+              "created_time": "2014-03-24T20:13:14+0000"
+            }, 
+            {
+              "id": "285060791660571_1398496249712", 
+              "from": {
+                "name": "Babak Dabagh", 
+                "id": "693460175"
+              }, 
+              "message": "http://pothibo.com/2013/09/d3-js-how-to-handle-dynamic-json-data/", 
+              "created_time": "2014-04-26T07:10:49+0000"
+            }, 
+            {
+              "id": "285060791660571_1398496919251", 
+              "from": {
+                "name": "Babak Dabagh", 
+                "id": "693460175"
+              }, 
+              "message": "http://nvd3.org/examples/stackedArea.html", 
+              "created_time": "2014-04-26T07:21:59+0000"
+            }, 
+            {
+              "id": "285060791660571_1398501689991", 
+              "from": {
+                "name": "Radu Cracut", 
+                "id": "100000153139812"
+              }, 
+              "message": "http://blogs.microsoft.co.il/alon_nativ/2011/05/30/search-facebook-friends-with-jquery-autocomplete/", 
+              "created_time": "2014-04-26T08:41:29+0000"
+            }, 
+            {
+              "id": "285060791660571_1398502830581", 
+              "from": {
+                "name": "Radu Cracut", 
+                "id": "100000153139812"
+              }, 
+              "message": "http://getbootstrap.com/examples/theme/", 
+              "created_time": "2014-04-26T09:00:30+0000"
+            }, 
+            {
+              "id": "285060791660571_1398503881811", 
+              "from": {
+                "name": "Babak Dabagh", 
+                "id": "693460175"
+              }, 
+              "message": "greatkaba", 
+              "created_time": "2014-04-26T09:18:01+0000"
+            }, 
+            {
+              "id": "285060791660571_1398503882638", 
+              "from": {
+                "name": "Babak Dabagh", 
+                "id": "693460175"
+              }, 
+              "message": "b", 
+              "created_time": "2014-04-26T09:18:02+0000"
+            }, 
+            {
+              "id": "285060791660571_1398503884006", 
+              "from": {
+                "name": "Babak Dabagh", 
+                "id": "693460175"
+              }, 
+              "message": "greatkabab", 
+              "created_time": "2014-04-26T09:18:04+0000"
+            }
+          ],
+		  }
+	    }
+    }
+}
