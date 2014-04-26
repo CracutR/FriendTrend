@@ -3,6 +3,11 @@ require 'open-uri'
 require 'json'
 access_token = 'CAACEdEose0cBAJZCylvBU9cKQnWdZAcPHkvqnZB4z3SxU4OhTnbF8NX4clwIhyOZCadyjN5AfeHqUTiIdP240vMCZBvKmAtJievBXY6MDcu8CK3b7fZBoKvkIZAsroVlfjfk5xYWSmfcJzax2xyfQbr0qfIoROfNX3oppyHodbHGeVbZAAZCZBGy4KuDNHhNw0lZBxM5DgfLMySPAZDZD'
 
+# Retrieves and prints a space-delimited mapping of
+# dates => counts of messages on a date
+# between me/ and friend.
+# dates are in the form yyyymmdd.
+
 if ARGV.size != 1 then
   fail 'missing friend of interest'
 end
@@ -47,4 +52,3 @@ end
 data = []
 # not sure if the below prints sorted by date
 msg_dates.each { |date, count| puts "#{date} #{count}" }
-
