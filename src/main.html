@@ -66,10 +66,10 @@
         var name = friendName.value;
          $.ajax({
             url: "trender.rb",
-            type:"GET"
+            type:"GET",
             data: {
               friend = name;
-            }
+            },
             context: document.body,
             success: function(info){
                     data = info;
