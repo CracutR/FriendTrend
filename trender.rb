@@ -1,8 +1,9 @@
-require 'koala' # facebook wrapper
+require 'koala'   # facebook wrapper
+require 'sinatra' # to push onto server for javascript access
 require 'open-uri'
 require 'json'
-access_token = 'CAACEdEose0cBAJZCylvBU9cKQnWdZAcPHkvqnZB4z3SxU4OhTnbF8NX4clwIhyOZCadyjN5AfeHqUTiIdP240vMCZBvKmAtJievBXY6MDcu8CK3b7fZBoKvkIZAsroVlfjfk5xYWSmfcJzax2xyfQbr0qfIoROfNX3oppyHodbHGeVbZAAZCZBGy4KuDNHhNw0lZBxM5DgfLMySPAZDZD'
-
+access_token = 'CAACEdEose0cBACj4DZCaeZAET1eNXyLCGLHqZCdlxlUA2YF2RjYrFUDepo2fNr0r8rip4OHGZABUjd9IoXZBrszRr6yhwvEH1RugZCkr23XnJK6jZBTUtlLwlNzQ6c0zG2YnLJujlVAAS9qZC9oJx7SGRcI4NcuKRhqZAQ34olUAUCk9prFliZAX2XDgkKASOPmvZCfeJZBqiD0nZCgZDZD'
+get '/' do
 # Retrieves and prints a space-delimited mapping of
 # dates => counts of messages on a date
 # between me/ and friend.
@@ -14,7 +15,7 @@ end
 friend    = ARGV[0]
 graph     = Koala::Facebook::API.new(access_token)
 user      = graph.get_object("me")
-messages  = graph.get_connections(user["id"], "outbox", { :limit => 2000})
+messages  = graph.get_connections(user["id"], "outbox", { :limit => 200})
 json_msgs = JSON.parse(JSON.pretty_generate(messages))
 
 # find friend among all friends you've messaged  
@@ -36,8 +37,8 @@ pages_deep = 0 # for debug
 msg_dates = [] 
 msg_dates = Hash.new
 while target and target["paging"] do
-  #puts pages_deep.to_s + " pages deep" # debug
-  #pages_deep = pages_deep.next         # debug
+#  puts pages_deep.to_s + " pages deep" # debug
+#  pages_deep = pages_deep.next         # debug
   entries = target["data"]
   entries.each do |entry|
     time = entry["created_time"] # get timestamp
@@ -49,6 +50,6 @@ while target and target["paging"] do
   next_link = target["paging"]["next"]
   target = JSON.load(open(next_link))
 end
-data = []
 # not sure if the below prints sorted by date
 msg_dates.each { |date, count| puts "#{date} #{count}" }
+end
