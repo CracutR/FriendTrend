@@ -64,6 +64,7 @@
       function getData() {
         var friendName = document.getElementById("textbox");
         var name = friendName.value;
+        alert();
          $.ajax({
             url: "trender.rb",
             type:"GET",
@@ -111,7 +112,7 @@
               <h1 style="font-size: 100pt;">Friend Trend</h1>
               <p class="lead">Where did the time go?</p>
             </div>
-            <form class="navbar-form navbar-left" style="width: 100%;"  method="post" >
+            <form class="navbar-form navbar-left" style="width: 100%;"  onsubmit="getData();" >
                  <input type="text" id="textbox" class="form-control col-lg-8" placeholder="Search for a Friend" style="float: none; vertical-align: bottom;">
                  <button type="button" onclick="getData();" id="bill" class="btn btn-primary" style="margin-left: 20px; vertical-align: bottom" action:"submit">
                     Search!
