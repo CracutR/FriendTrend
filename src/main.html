@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="http://bootswatch.com/readable/bootstrap.css" media="screen">
     <link rel="stylesheet" href="http://bootswatch.com/assets/css/bootswatch.min.css">
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
@@ -30,8 +32,9 @@
     <script id="friend_chart" type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
+      var data;
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
+        data = google.visualization.arrayToDataTable([
           ['Month', 'Messages'],
           ['January', 1000],
           ['February', 1170],
@@ -57,6 +60,24 @@
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
+
+      function getData() {
+        var friendName = document.getElementById("textbox");
+        var name = friendName.value;
+         $.ajax({
+            url: "trender.rb",
+            type:"GET"
+            data: {
+              friend = name;
+            }
+            context: document.body,
+            success: function(info){
+                    data = info;
+                    alert("data = " + data);
+          }
+
+         });
+     }
     </script>
     <script id="pie_chart" type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
@@ -80,53 +101,6 @@
   </head>
    
   <body style="background-color: lightgray">
-    <div id="fb-root"></div>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '691339254237450',
-          status     : true,
-          xfbml      : true
-        });
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "http://connect.facebook.net/en_US/all.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-      (function() {
-
-  function pageload() {
-    var submit = document.getElementById("bill");
-    submit.onclick = getPictures;
-  }
-  
-  function getPictures() {
-    var submit = document.getElementById("bill");
-    var name = submit.innerHTML;
-    FB.api("/me", {fields: "id,name,picture"}, function(response)
-    {
-
-      FB.api(
-          {
-            method: 'fql.query',
-            query: 'SELECT pic_big FROM profile WHERE id = response.id'
-          },
-          function(data1) {
-            document.getElementById("first").src = data1[0].pic_big;
-          }
-      );
-
-    });
-  }
-  
-  window.onload = pageload;
-})();
-    </script>
-
     </script>
     <div class="container">
 
@@ -137,9 +111,11 @@
               <h1 style="font-size: 100pt;">Friend Trend</h1>
               <p class="lead">Where did the time go?</p>
             </div>
-            <form class="navbar-form navbar-left" style="width: 100%;" action="trender.rb" method="post" >
-                 <input type="text" class="form-control col-lg-8" placeholder="Search for a Friend" style="float: none; vertical-align: bottom;">
-                 <button type="button" id="bill" class="btn btn-primary" style="margin-left: 20px; vertical-align: bottom" action:"submit">Search!</button>
+            <form class="navbar-form navbar-left" style="width: 100%;"  method="post" >
+                 <input type="text" id="textbox" class="form-control col-lg-8" placeholder="Search for a Friend" style="float: none; vertical-align: bottom;">
+                 <button type="button" onclick="getData();" id="bill" class="btn btn-primary" style="margin-left: 20px; vertical-align: bottom" action:"submit">
+                    Search!
+                </button>
                  <img id="first" src="https://scontent-a.xx.fbcdn.net/hprofile-prn2/v/t1.0-1/s200x200/1507550_845868292094934_3390184287996369470_n.jpg?oh=dbf4d507729f55f43827015f10bc75b1&oe=53DEBD2F" alt="profile1" style="float: right;"/> 
                  <img id="second" src="https://scontent-a.xx.fbcdn.net/hprofile-prn2/v/t1.0-1/s200x200/1507550_845868292094934_3390184287996369470_n.jpg?oh=dbf4d507729f55f43827015f10bc75b1&oe=53DEBD2F" alt="profile1" style="float: right; margin-right: 10px;"/> 
               </form>
