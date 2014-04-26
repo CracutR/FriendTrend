@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://bootswatch.com/readable/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Friend Trend</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://bootswatch.com/readable/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="http://bootswatch.com/assets/css/bootswatch.min.css">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+      <script src="../bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" async="" src="./Bootswatch  Readable_files/ga.js"></script><script>
+
+     var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-23019901-1']);
+      _gaq.push(['_setDomainName', "bootswatch.com"]);
+        _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script><style type="text/css"></style>
+    <script id="friend_chart" type="text/javascript">
+      var my_JSON_object = $.getJSON("./sample.json");
+      alert (my_JSON_object.outbox.data[0]);
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Month', 'Messages'],
+          ['January', 1000],
+          ['February', 1170],
+          ['March',  660],
+          ['April',  1030],
+          ['May',  400],
+          ['June',  678],
+          ['July',  2353],
+          ['August',  123],
+          ['September',  0],
+          ['October',  103],
+          ['November',  986],
+          ['December',  1030]
+        ]);
+
+        var options = {
+          title: 'Friend Trend',
+          hAxis: {title: 'Month',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0},
+          backgroundColor: "transparent"
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+    <script id="pie_chart" type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Person", "Label"],
+          ["Times You Liked Their Post", 26],
+          ["Times They Liked Your Posts", 36]
+          ]);
+        var options = {
+          title: "Like Counts",
+          backgroundColor: "transparent"
+
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById("pie_div"));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body style="background-color: lightgray">
+    <div class="container">
+
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-6" style="width: 100%" >
+            <div class="jumbotron" style="background-color: lightgray; width:100%; padding-left: 20px; border-style: double;">
+              <h1 style="font-size: 100pt;">Friend Trend</h1>
+              <p class="lead">Where did the time go?</p>
+            </div>
+            <form class="navbar-form navbar-left" style="width: 100%;" >
+                 <input type="text" class="form-control col-lg-8" placeholder="Search for a Friend" style="float: none; vertical-align: bottom;">
+                 <button type="button" class="btn btn-primary" style="margin-left: 20px; vertical-align: bottom">Search!</button>
+                 <img src="https://scontent-a.xx.fbcdn.net/hprofile-prn2/v/t1.0-1/s200x200/1507550_845868292094934_3390184287996369470_n.jpg?oh=dbf4d507729f55f43827015f10bc75b1&oe=53DEBD2F" alt="profile1" style="float: right;"/> 
+                 <img src="https://scontent-a.xx.fbcdn.net/hprofile-prn2/v/t1.0-1/s200x200/1507550_845868292094934_3390184287996369470_n.jpg?oh=dbf4d507729f55f43827015f10bc75b1&oe=53DEBD2F" alt="profile1" style="float: right; margin-right: 10px;"/> 
+              </form>
+          </div>
+        </div>
+      </div>
+      <div class="jumbotron">
+        <div id="chart_div" style="width: 900px; height: 500px; text-align: left;"></div>
+        <div id="pie_div" style="width: 900px; height: 500px;"></div>
+
+      </div>
+
+      
