@@ -2,7 +2,7 @@ require 'koala'   # facebook wrapper
 # require 'sinatra' # to push onto server for javascript access
 require 'open-uri'
 require 'json'
-access_token = 'CAACEdEose0cBAEg6IYYjUDDfBp5SZBrzShoawuvDZAMzLxMNsf6Mj195CSN4n5Fc8lspt2JdiZBY6xaqLOZCv3ZAerdEaNB7Wwpw4fzq76yd6AvVVRmE6f8S6qXSPCUoYZAUZA6nRM9yeGo8lTa2rHyXZC67hZA6aF3VLTYCDSoUCzfWkjzvEHrQMZBFHZAV3HAfPag6vQfJLXQlgZDZD'
+access_token = 'CAACEdEose0cBACFZAQDZCAWwGZCn8BDyhlNowE8m14ao8tGWlkyOrycumqBPlQHvju3b6DdhspZBkO7ogEGmH8hSVFswPZA9TpvvlAToEWhCMB0XW0mzYHPgpZBi4ZCCwHXJYcjZBkZAid479yKIp8h6NSUUvGrd6FYqu6uww3ZCAFVe06Y7ehsClXRsz85jRPZBC3UlWTykO4UPwZDZD'
 # get '/:friend' do
 # Retrieves and prints a space-delimited mapping of
 # dates => counts of messages on a date
@@ -53,7 +53,8 @@ while target and target["paging"] do
   next_link = target["paging"]["next"]
   begin
     target = JSON.load(open(next_link))
-  rescue retry 
+  rescue
+    retry 
   end
 end
 
