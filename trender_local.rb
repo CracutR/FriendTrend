@@ -2,7 +2,7 @@ require 'koala'   # facebook wrapper
 # require 'sinatra' # to push onto server for javascript access
 require 'open-uri'
 require 'json'
-access_token = 'CAACEdEose0cBACFZAQDZCAWwGZCn8BDyhlNowE8m14ao8tGWlkyOrycumqBPlQHvju3b6DdhspZBkO7ogEGmH8hSVFswPZA9TpvvlAToEWhCMB0XW0mzYHPgpZBi4ZCCwHXJYcjZBkZAid479yKIp8h6NSUUvGrd6FYqu6uww3ZCAFVe06Y7ehsClXRsz85jRPZBC3UlWTykO4UPwZDZD'
+access_token = 'CAACEdEose0cBAFUNmWakLYLf5SfB0ZBBQuZCZAuCq3RocvuXSDyuz9xpCa1BKDDwcezycsAnZBMTjjQi7j425QFHpoW4seNopGoCiAo2hqYZCk61slxZBTl3LVS7fEvUWQmt0xGh4xKmZBvvkW1ZCKNRhqUMOjhfPT2Sn6MhDbRGkyamArrZB04bM2dtIY5prldIZD'
 # get '/:friend' do
 # Retrieves and prints a space-delimited mapping of
 # dates => counts of messages on a date
@@ -39,12 +39,13 @@ end
 msg_dates = [] 
 msg_dates = Hash.new
 while target and target["paging"] do
-  #  puts pages_deep.to_s + " pages deep" # debug
-  #  pages_deep = pages_deep.next         # debug
+    puts pages_deep.to_s + " pages deep" # debug
+    pages_deep = pages_deep.next         # debug
   entries = target["data"]
   entries.each do |entry|
     time = entry["created_time"] # get timestamp
     date_key = time.split("T")[0]
+    p entry
     unless msg_dates.has_key? date_key then 
       msg_dates[date_key] = 0 
     end
@@ -52,7 +53,10 @@ while target and target["paging"] do
   end
   next_link = target["paging"]["next"]
   begin
-    target = JSON.load(open(next_link))
+    target = JSON.load(open(next_link)) # we may be able to do /much/ better
+    # than this by a FQL query: SELECT id FROM object_url WHERE url = next_link
+    # but we'd need a way to get a graph object from an id. I expect there
+    # is a way.
   rescue
     retry 
   end
